@@ -65,6 +65,7 @@ function locationSearch() {
 
 $(".create-hangout").on("click", function(event) {
     event.preventDefault();
+    console.log("working");
     const APIKEY = "AIzaSyDWLRgKxz3nTinzcUXCyjM1DNpe9e4_g2w";
     let place = autocomplete.getPlace();
     console.log(place.geometry.location);
