@@ -61,12 +61,18 @@ let ac = new google.maps.places.Autocomplete(document.getElementById('enterLocat
     componentRestrictions: { country: 'us' }
 });
 
-google.maps.event.addListener(ac, 'place_changed', function() {
-    place = ac.getPlace();
-}); 
+//     google.maps.event.addListener(ac, 'place_changed', function() {
+//         place = ac.getPlace();
+//     });
+// });
+//figure out how to get location lat and long different way 
 
 $(".create-hangout").on("click", function(event) {
     event.preventDefault();
+    
+    google.maps.event.addListener(ac, 'place_changed', function() {
+        place = ac.getPlace();
+    });
     
         locationSearch = place.geometry.location; 
         let lat = place.geometry.location.lat();
