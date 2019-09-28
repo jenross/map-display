@@ -9,6 +9,7 @@ html, body {
 }
 
 .map-container {
-    height: 400px;
+    min-height: 300px;
     width: 50%; 
+    margin: 0 auto; 
 }
