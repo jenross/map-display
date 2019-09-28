@@ -10,5 +10,5 @@ html, body {
 
 .map-container {
     min-height: 300px;
-    width: 50%; 
+    max-width: 400px; 
 }
