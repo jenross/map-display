@@ -1,7 +1,7 @@
 #map {
-    height: 300px;
-    width: 450px;
-    margin: 0 auto;
+    height: 100%;
+    width: 50%; 
+    margin: 0 auto; 
 }
 /* Optional: Makes the sample page fill the window. */
 html, body {
