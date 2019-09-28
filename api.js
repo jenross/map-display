@@ -59,6 +59,8 @@ const randomize = (min, max) => Math.floor(Math.random() * (max - min + 1) + min
 function locationSearch() {
     let initialLocationSearch = document.getElementById('enterLocation');
     let autocomplete = new google.maps.places.Autocomplete(initialLocationSearch);
+    let place = autocomplete.getPlace();
+    console.log(place.geometry.location);
 }
 
 // let ac = new google.maps.places.Autocomplete(document.getElementById('enterLocation')); 
