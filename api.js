@@ -59,41 +59,15 @@ const randomize = (min, max) => Math.floor(Math.random() * (max - min + 1) + min
 function locationSearch() {
     let initialLocationSearch = document.getElementById('enterLocation');
     let autocomplete = new google.maps.places.Autocomplete(initialLocationSearch);
-    let place = autocomplete.getPlace();
-    console.log(place.geometry.location);
+    // let place = autocomplete.getPlace();
+    // console.log(place.geometry.location);
 }
-
-// let ac = new google.maps.places.Autocomplete(document.getElementById('enterLocation')); 
-
-// google.maps.event.addListener(ac, 'place_changed', function() {
-//     let place = ac.getPlace();
-//     console.log(place.geometry.location);
-// });
-// });
-//figure out how to get location lat and long different way 
-
-// $( "input[id='enterLocation']" ).change(function() {
-//     locationSearch = $(this).val();
-//     console.log(locationSearch);
-//   });
 
 $(".create-hangout").on("click", function(event) {
     event.preventDefault();
     const APIKEY = "AIzaSyDWLRgKxz3nTinzcUXCyjM1DNpe9e4_g2w";
-    // google.maps.event.addListener(ac, 'place_changed', function() {
-    //     place = ac.getPlace();
-    // });
-        // $( "input[id='enterLocation']" ).change(function() {
-        //     locationSearch = $(this).val();
-        //     console.log(locationSearch);
-        //     let autocompleteQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json&key=${APIKEY}&input=${locationSearch}`;
-        //     $.ajax({
-        //         url: autocompleteQueryURL,
-        //         method: "GET"
-        //     }).then(function(response) {
-        //         console.log(response);
-        // });
-    
+    let place = autocomplete.getPlace();
+    console.log(place.geometry.location);
         // locationSearch = place.geometry.location; 
         // let lat = place.geometry.location.lat();
         // let lng = place.geometry.location.lng();
