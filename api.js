@@ -5,8 +5,8 @@ let typeOfPlace;
 let cafe = document.getElementById('cafe');
 let restaurant = document.getElementById('restaurant');
 let bar = document.getElementById('bar');
-let locationSearch; 
-let place; 
+// let locationSearch; 
+// let place; 
 let resultsArr = [];
 let randomPick;
 let groupArr = [];
@@ -56,14 +56,17 @@ const randomize = (min, max) => Math.floor(Math.random() * (max - min + 1) + min
 // let service = new google.maps.places.PlacesService(map);
 
 // let placeFilter = typeOfPlace.id; 
+function locationSearch() {
+    let initialLocationSearch = document.getElementById('enterLocation');
+    let autocomplete = new google.maps.places.Autocomplete(initialLocationSearch);
+}
 
-// let ac = new google.maps.places.Autocomplete(document.getElementById('enterLocation'), {
-//     componentRestrictions: { country: 'us' }
+// let ac = new google.maps.places.Autocomplete(document.getElementById('enterLocation')); 
+
+// google.maps.event.addListener(ac, 'place_changed', function() {
+//     let place = ac.getPlace();
+//     console.log(place.geometry.location);
 // });
-
-//     google.maps.event.addListener(ac, 'place_changed', function() {
-//         place = ac.getPlace();
-//     });
 // });
 //figure out how to get location lat and long different way 
 
@@ -78,16 +81,16 @@ $(".create-hangout").on("click", function(event) {
     // google.maps.event.addListener(ac, 'place_changed', function() {
     //     place = ac.getPlace();
     // });
-        $( "input[id='enterLocation']" ).change(function() {
-            locationSearch = $(this).val();
-            console.log(locationSearch);
-            let autocompleteQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json&key=${APIKEY}&input=${locationSearch}`;
-            $.ajax({
-                url: autocompleteQueryURL,
-                method: "GET"
-            }).then(function(response) {
-                console.log(response);
-        });
+        // $( "input[id='enterLocation']" ).change(function() {
+        //     locationSearch = $(this).val();
+        //     console.log(locationSearch);
+        //     let autocompleteQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/autocomplete/json&key=${APIKEY}&input=${locationSearch}`;
+        //     $.ajax({
+        //         url: autocompleteQueryURL,
+        //         method: "GET"
+        //     }).then(function(response) {
+        //         console.log(response);
+        // });
     
         // locationSearch = place.geometry.location; 
         // let lat = place.geometry.location.lat();
@@ -125,4 +128,4 @@ $(".create-hangout").on("click", function(event) {
         //         // $("#")
         //     });
     });
-});
+// });
