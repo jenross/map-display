@@ -57,9 +57,9 @@ const randomize = (min, max) => Math.floor(Math.random() * (max - min + 1) + min
 
 // let placeFilter = typeOfPlace.id; 
 
-let ac = new google.maps.places.Autocomplete(document.getElementById('enterLocation'), {
-    componentRestrictions: { country: 'us' }
-});
+// let ac = new google.maps.places.Autocomplete(document.getElementById('enterLocation'), {
+//     componentRestrictions: { country: 'us' }
+// });
 
 //     google.maps.event.addListener(ac, 'place_changed', function() {
 //         place = ac.getPlace();
@@ -67,18 +67,27 @@ let ac = new google.maps.places.Autocomplete(document.getElementById('enterLocat
 // });
 //figure out how to get location lat and long different way 
 
+$( "input[id='enterLocation']" ).change(function() {
+    locationSearch = $(this).val();
+    console.log(locationSearch);
+  });
+
 $(".create-hangout").on("click", function(event) {
     event.preventDefault();
+
+    // google.maps.event.addListener(ac, 'place_changed', function() {
+    //     place = ac.getPlace();
+    // });
+        $( "input[id='enterLocation']" ).change(function() {
+            locationSearch = $(this).val();
+            console.log(locationSearch);
+        });
     
-    google.maps.event.addListener(ac, 'place_changed', function() {
-        place = ac.getPlace();
-    });
-    
-        locationSearch = place.geometry.location; 
-        let lat = place.geometry.location.lat();
-        let lng = place.geometry.location.lng();
+        // locationSearch = place.geometry.location; 
+        // let lat = place.geometry.location.lat();
+        // let lng = place.geometry.location.lng();
         const APIKEY = "AIzaSyDWLRgKxz3nTinzcUXCyjM1DNpe9e4_g2w";
-        let initialQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${APIKEY}&location=${lat},${lng}&radius=1000&type=restaurant`;
+        let initialQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${APIKEY}&location=${locationSearch}&radius=1000&type=restaurant`;
         $.ajax({
             url: initialQueryURL,
             method: "GET"
