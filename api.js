@@ -124,5 +124,5 @@ $(".create-hangout").on("click", function(event) {
         //         console.log(pickName);
         //         // $("#")
         //     });
-        // });
+        });
 });
