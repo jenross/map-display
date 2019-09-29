@@ -5,8 +5,8 @@ let typeOfPlace;
 let cafe = document.getElementById('cafe');
 let restaurant = document.getElementById('restaurant');
 let bar = document.getElementById('bar');
-// let locationSearch; 
-// let place; 
+let locationSearch; 
+let place; 
 let resultsArr = [];
 let randomPick;
 let groupArr = [];
@@ -56,22 +56,23 @@ const randomize = (min, max) => Math.floor(Math.random() * (max - min + 1) + min
 // let service = new google.maps.places.PlacesService(map);
 
 // let placeFilter = typeOfPlace.id; 
-function locationSearch() {
+function autocompleteSearch() {
     let initialLocationSearch = document.getElementById('enterLocation');
     let autocomplete = new google.maps.places.Autocomplete(initialLocationSearch);
-    // let place = autocomplete.getPlace();
-    // console.log(place.geometry.location);
+    place = autocomplete.getPlace();
 }
 
 $(".create-hangout").on("click", function(event) {
     event.preventDefault();
     console.log("working");
     const APIKEY = "AIzaSyDWLRgKxz3nTinzcUXCyjM1DNpe9e4_g2w";
-    let place = autocomplete.getPlace();
-    console.log(place.geometry.location);
+    // let place = autocomplete.getPlace();
+    // console.log(place.geometry.location);
         // locationSearch = place.geometry.location; 
-        // let lat = place.geometry.location.lat();
-        // let lng = place.geometry.location.lng();
+        let lat = place.geometry.location.lat();
+        console.log(lat);
+        let lng = place.geometry.location.lng();
+        console.log(lng);
         
         // let initialQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${APIKEY}&location=${locationSearch}&radius=1000&type=restaurant`;
         // $.ajax({
