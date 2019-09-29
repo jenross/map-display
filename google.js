@@ -58,13 +58,13 @@ autocomplete.addListener('place_changed', function() {
                 url: pickedQueryURL,
                 method: "GET"
             }).then(function(response) {
-                let pickLat = response.result.geometry.location.lat;
-                let pickLng = response.result.geometry.location.lng;
+                // let pickLat = response.result.geometry.location.lat;
+                // let pickLng = response.result.geometry.location.lng;
                 let pickName = response.result.name;
-                let pickAddress = response.result.formatted_address;
-                let pickIcon = response.result.icon;
-                let pickOpenNow = response.result.opening_hours.open_now;
-                let pickWebsite = response.result.website;
+                // let pickAddress = response.result.formatted_address;
+                // let pickIcon = response.result.icon;
+                // let pickOpenNow = response.result.opening_hours.open_now;
+                // let pickWebsite = response.result.website;
                 console.log(pickName);
                 // $("#")
           
