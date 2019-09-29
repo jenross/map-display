@@ -60,6 +60,10 @@ function autocompleteSearch() {
     let initialLocationSearch = document.getElementById('enterLocation');
     let autocomplete = new google.maps.places.Autocomplete(initialLocationSearch);
     place = autocomplete.getPlace();
+    let lat = place.geometry.location.lat();
+    console.log(lat);
+    let lng = place.geometry.location.lng();
+    console.log(lng);
 }
 
 $(".create-hangout").on("click", function(event) {
@@ -69,10 +73,10 @@ $(".create-hangout").on("click", function(event) {
     // let place = autocomplete.getPlace();
     // console.log(place.geometry.location);
         // locationSearch = place.geometry.location; 
-        let lat = place.geometry.location.lat();
-        console.log(lat);
-        let lng = place.geometry.location.lng();
-        console.log(lng);
+        // let lat = place.geometry.location.lat();
+        // console.log(lat);
+        // let lng = place.geometry.location.lng();
+        // console.log(lng);
         
         // let initialQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${APIKEY}&location=${locationSearch}&radius=1000&type=restaurant`;
         // $.ajax({
