@@ -68,12 +68,12 @@ autocomplete.addListener('place_changed', function() {
                 console.log(pickName);
                 // $("#")
           
-                if (response.result.geometry.viewport) {
-                    map.fitBounds(response.result.geometry.viewport);
-                } else {
-                    map.setCenter(response.result.geometry.location);
-                    map.setZoom(17);  // Why 17? Because it looks good.
-                }
+                // if (response.result.geometry.viewport) {
+                //     map.fitBounds(response.result.geometry.viewport);
+                // } else {
+                map.setCenter(response.result.geometry.location);
+                map.setZoom(17);  // Why 17? Because it looks good.
+                // }
                 marker.setPosition(response.result.geometry.location);
                 marker.setVisible(true);
 
