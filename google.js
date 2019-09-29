@@ -47,13 +47,12 @@ autocomplete.addListener('place_changed', function() {
             url: initialQueryURL,
             method: "GET"
         }).then(function(response) {
-            // for (let i = 0; i < response.results.length; i++) {
-            //     let place_id = response.results[i].place_id;
-            //     resultsArr.push(place_id);
-            //     randomPick = resultsArr[randomize(0, resultsArr.length - 1)];
-            console.log(response);
-            // }
-            // console.log(randomPick);
+            for (let i = 0; i < response.results.length; i++) {
+                let place_id = response.results[i].place_id;
+                resultsArr.push(place_id);
+                randomPick = resultsArr[randomize(0, resultsArr.length - 1)];
+            }
+            console.log(randomPick);
             let pickedQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${APIKEY}&place_id=${randomPick}`;
             $.ajax({
                 url: pickedQueryURL,
@@ -66,7 +65,7 @@ autocomplete.addListener('place_changed', function() {
                 // let pickIcon = response.result.icon;
                 // let pickOpenNow = response.result.opening_hours.open_now;
                 // let pickWebsite = response.result.website;
-                // console.log(pickName);
+                console.log(pickName);
                 // $("#")
           
                 if (response.result.geometry.viewport) {
@@ -78,14 +77,22 @@ autocomplete.addListener('place_changed', function() {
                 marker.setPosition(response.result.geometry.location);
                 marker.setVisible(true);
 
-                var address = '';
-                if (response.result.address_components) {
-                    address = [
-                    (response.result.address_components[0] && response.result.address_components[0].short_name || ''),
-                    (response.result.address_components[1] && response.result.address_components[1].short_name || ''),
-                    (response.result.address_components[2] && response.result.address_components[2].short_name || '')
-                    ].join(' ');
-                }
+                var address = response.result.formatted_address;
+                // if (response.result.formatted_address) {
+                //     address = [
+                //     (response.result.address_components[0] && response.result.address_components[0].short_name || ''),
+                //     // (response.result.address_components[1] && response.result.address_components[1].short_name || ''),
+                    // (response.result.address_components[2] && response.result.address_components[2].short_name || '')
+                //     ].join(' ');
+                // }
+                // var address = '';
+                // if (response.result.address_components) {
+                //     address = [
+                //     (response.result.address_components[0] && response.result.address_components[0].short_name || ''),
+                //     (response.result.address_components[1] && response.result.address_components[1].short_name || ''),
+                //     (response.result.address_components[2] && response.result.address_components[2].short_name || '')
+                //     ].join(' ');
+                // }
 
                 infowindowContent.children['place-icon'].src = response.result.icon;
                 infowindowContent.children['place-name'].textContent = response.result.name;
