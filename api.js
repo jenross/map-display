@@ -71,44 +71,44 @@ $(".create-hangout").on("click", function(event) {
     event.preventDefault();
     console.log("working");
     const APIKEY = "AIzaSyDWLRgKxz3nTinzcUXCyjM1DNpe9e4_g2w";
-    // let place = autocomplete.getPlace();
-    // console.log(place.geometry.location);
-        // locationSearch = place.geometry.location; 
-        // let lat = place.geometry.location.lat();
-        // console.log(lat);
-        // let lng = place.geometry.location.lng();
-        // console.log(lng);
+    let place = autocomplete.getPlace();
+    console.log(place.geometry.location);
+        locationSearch = place.geometry.location; 
+        let lat = place.geometry.location.lat();
+        console.log(lat);
+        let lng = place.geometry.location.lng();
+        console.log(lng);
         
-        // let initialQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${APIKEY}&location=${locationSearch}&radius=1000&type=restaurant`;
-        // $.ajax({
-        //     url: initialQueryURL,
-        //     method: "GET"
-        // }).then(function(response) {
-        //     // console.log(response);
-        //     for (let i = 0; i < response.results.length; i++) {
-        //         let place_id = response.results[i].place_id;
-        //         // let place_name = response.results[i].name;
-        //         // let open = response.results[i].opening_hours.open_now;
-        //         // let photoResult = response.results[i].photos[0].html_attributions;
-        //         // let address = response.results[i].vicinity;
-        //         resultsArr.push(place_id);
-        //         randomPick = resultsArr[randomize(0, resultsArr.length - 1)];
-        //     }
-        //     console.log(randomPick);
-        //     let pickedQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${APIKEY}&place_id=${randomPick}`;
-        //     $.ajax({
-        //         url: pickedQueryURL,
-        //         method: "GET"
-        //     }).then(function(response) {
-        //         let pickLat = response.result.geometry.location.lat;
-        //         let pickLng = response.result.geometry.location.lng;
-        //         let pickName = response.result.name;
-        //         let pickAddress = response.result.formatted_address;
-        //         let pickIcon = response.result.icon;
-        //         let pickOpenNow = response.result.opening_hours.open_now;
-        //         let pickWebsite = response.result.website;
-        //         console.log(pickName);
-        //         // $("#")
-        //     });
+        let initialQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${APIKEY}&location=${locationSearch}&radius=1000&type=restaurant`;
+        $.ajax({
+            url: initialQueryURL,
+            method: "GET"
+        }).then(function(response) {
+            // console.log(response);
+            for (let i = 0; i < response.results.length; i++) {
+                let place_id = response.results[i].place_id;
+                // let place_name = response.results[i].name;
+                // let open = response.results[i].opening_hours.open_now;
+                // let photoResult = response.results[i].photos[0].html_attributions;
+                // let address = response.results[i].vicinity;
+                resultsArr.push(place_id);
+                randomPick = resultsArr[randomize(0, resultsArr.length - 1)];
+            }
+            console.log(randomPick);
+            let pickedQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/details/json?key=${APIKEY}&place_id=${randomPick}`;
+            $.ajax({
+                url: pickedQueryURL,
+                method: "GET"
+            }).then(function(response) {
+                let pickLat = response.result.geometry.location.lat;
+                let pickLng = response.result.geometry.location.lng;
+                let pickName = response.result.name;
+                let pickAddress = response.result.formatted_address;
+                let pickIcon = response.result.icon;
+                let pickOpenNow = response.result.opening_hours.open_now;
+                let pickWebsite = response.result.website;
+                console.log(pickName);
+                // $("#")
+            });
     });
 // });
