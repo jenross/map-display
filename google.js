@@ -42,7 +42,7 @@ autocomplete.addListener('place_changed', function() {
         console.log(lat);
         let lng = place.geometry.location.lng();
         console.log(lng);
-        let initialQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${APIKEY}&location=${locationSearch}&radius=1000&type=restaurant`;
+        let initialQueryURL = `https://cors-anywhere.herokuapp.com/https://maps.googleapis.com/maps/api/place/nearbysearch/json?key=${APIKEY}&location=${lat},${lng}&radius=1000&type=restaurant`;
         $.ajax({
             url: initialQueryURL,
             method: "GET"
