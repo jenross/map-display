@@ -60,10 +60,11 @@ function autocompleteSearch() {
     let initialLocationSearch = document.getElementById('enterLocation');
     let autocomplete = new google.maps.places.Autocomplete(initialLocationSearch);
     place = autocomplete.getPlace();
-    let lat = place.geometry.location.lat();
-    console.log(lat);
-    let lng = place.geometry.location.lng();
-    console.log(lng);
+    console.log(place);
+    // let lat = place.geometry.location.lat();
+    // console.log(lat);
+    // let lng = place.geometry.location.lng();
+    // console.log(lng);
 }
 
 $(".create-hangout").on("click", function(event) {
